@@ -31,6 +31,8 @@
     "@types/react": "^16.7.20",
     "@types/react-css-modules": "^4.6.2",
     "@types/react-dom": "^16.0.11",
-    "node-sass": "^4.11.0"
+    "literate-programming": "^1.0.0",
+    "node-sass": "^4.11.0",
+    "sass-less-material-colors": "^1.1.0"
   }
 }

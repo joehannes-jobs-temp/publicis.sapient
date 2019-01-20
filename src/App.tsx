@@ -1,15 +1,16 @@
 import React from 'react';
-import logo from './logo.svg';
+
+import { Button } from './components';
+
 import styles from './App.module.sass';
 
 class App extends React.Component<{}, {}> {
   public render() : React.ReactNode {
     return (
       <div className={styles.App}>
-        <header className={styles.AppHeader}>
-          <img src={logo} className={styles.AppLogo} alt="logo" />
+        <header styleName={styles.AppHeader} className="u-bg-color--neutral-secondary">
           <p>
-            Edit <code>src/App.tsx</code> and save to reload.
+            Edit <Button.Component>src/App.tsx</Button.Component> and save to reload.
           </p>
           <a
             className={styles.AppLink}
