@@ -6,8 +6,9 @@ An architectural entry point for (all possible) components ...
 
 ```ts
 import * as Container from './Container';
+import * as Button from './Button';
 
-export { Container };
+export { Container, Button };
 
 ```
 

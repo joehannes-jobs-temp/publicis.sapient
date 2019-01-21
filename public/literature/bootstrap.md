@@ -99,15 +99,12 @@ Now let's have a quick check if that basic View actually renders ...
 ## Test App
 
 ```tsx
-import React from 'react';
-import ReactDOM from 'react-dom';
-
 import App from '../App';
 
-it('renders without crashing', () => {
-    const div = document.createElement('div');
-    ReactDOM.render(<App />, div);
-    ReactDOM.unmountComponentAtNode(div);
+describe('The App Container', function() {
+    it('renders without crashing', () => {
+      const app = mount(<App/>);
+      expect(app).toContainMatchingElement('main');
+    });
 });
-
 ```
