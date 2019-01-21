@@ -12,7 +12,7 @@ const PATH = {
 
 gulp.task('watchLiterature', () => {
   return watch(PATH.src, { ignoreInitial: true }, (vinyl) => {
-    return grun('npx gulp compile');
+    return grun('npx litpro -b src/ public/literature/' + vinyl.relative).exec();
 	});
 });
 
@@ -25,9 +25,6 @@ gulp.task('compile', (done) => {
 		.pipe(tap((vinyl) => {
       return grun('npx litpro -b src/ ' + folder + vinyl.relative)
         .exec(() => {
-          console.log(compiled);
-          console.log(files.length);
-          console.log("---");
           if (++compiled === files.length) {
             done();
           }

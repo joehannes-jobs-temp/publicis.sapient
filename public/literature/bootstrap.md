@@ -93,3 +93,21 @@ export default class extends React.Component<{}, {}> {
 }
 ```
 
+Now let's have a quick check if that basic View actually renders ...
+[specs/App.spec.tsx](#Test-App "save:")
+
+## Test App
+
+```tsx
+import React from 'react';
+import ReactDOM from 'react-dom';
+
+import App from '../App';
+
+it('renders without crashing', () => {
+    const div = document.createElement('div');
+    ReactDOM.render(<App />, div);
+    ReactDOM.unmountComponentAtNode(div);
+});
+
+```
