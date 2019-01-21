@@ -85,11 +85,11 @@ and access 'em in a namespace, so I can easily co-import the required `Props-Def
 import React from 'react';
 
 import FlexContainer from './components';
-import Carousel from './components';
-import { fetchImgs } from './HTTPService.ts';
+import { CarouselView } from './views';
+// import { fetchImgs } from './HTTPService.ts';
 
 const carouselProps: Carousel.IProps = {
-  src: fetchImgs,
+  // src: fetchImgs,
 };
 
 export default class extends React.Component<{}, {}> {
