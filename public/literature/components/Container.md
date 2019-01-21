@@ -35,7 +35,7 @@ export class Flex extends React.Component<{}, {}> {
 
 ```sass
 .bg-pattern-web-darkly
-  background-image: url('assets/connectwork.png')
+  background-image: url('/assets/connectwork.png')
   background-blend-mode: multiply
 ```
 
