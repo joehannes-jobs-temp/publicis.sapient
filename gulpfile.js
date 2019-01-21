@@ -36,4 +36,11 @@ gulp.task('react', () => {
   return grun('npm run dev').exec();
 });
 
+gulp.task('jest', () => {
+  return grun('npm run jest').exec(); 
+});
+
+gulp.task('test', gulp.series('compile', gulp.parallel('watchLiterature', 'jest')));
+
 gulp.task('default', gulp.series('compile', gulp.parallel('watchLiterature', 'react')));
+
