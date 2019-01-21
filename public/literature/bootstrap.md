@@ -84,23 +84,30 @@ and access 'em in a namespace, so I can easily co-import the required `Props-Def
 ```tsx
 import React from 'react';
 
-import FlexContainer from './components';
-import Carousel from './components';
-import { fetchImgs } from './HTTPService.ts';
-
-const carouselProps: Carousel.IProps = {
-  src: fetchImgs,
-};
+import { CarouselView } from './views';
 
 export default class extends React.Component<{}, {}> {
     public render(): React.ReactNode {
-        return (
-            <FlexContainer.Component>
-                <h3>Carousel Test</h3>
-                <Carousel.Component {...carouselProps} />
-            </FlexContainer.Component>
-        );
+        return (<CarouselView/>);
     }
 }
 ```
 
+Now let's have a quick check if that basic View actually renders ...
+[specs/App.spec.tsx](#Test-App "save:")
+
+## Test App
+
+```tsx
+import React from 'react';
+import ReactDOM from 'react-dom';
+
+import App from '../App';
+
+it('renders without crashing', () => {
+    const div = document.createElement('div');
+    ReactDOM.render(<App />, div);
+    ReactDOM.unmountComponentAtNode(div);
+});
+
+```
