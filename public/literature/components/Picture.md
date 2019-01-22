@@ -21,7 +21,7 @@ export interface IProps {
 interface IState {
 }
 
-export class Picture extends React.Component<IProps, IState> {
+export class Component extends React.Component<IProps, IState> {
     public render(): React.ReactNode {
         const { imgUrl, picNr, handlePrev, handleNext } = this.props;
 
@@ -81,8 +81,6 @@ Now let's add style again
   border-radius: 50%
 .prev
   transform: rotate(180deg)
-.next
 
 ```
-
 
