@@ -12,7 +12,7 @@ We'll now utilize the Flex-Container we created in [Book 2](public/literature/co
 import React from 'react';
 
 import { Container } from '../components';
-import { Button } from '../components';
+import { Button, Carousel } from '../components';
 
 import * as Behaviours from '../lib/Behaviours';
 
@@ -47,16 +47,18 @@ export default class extends React.Component<IProps, IState> {
         carouselData: [],
       };
 
-      PixabayService.fetch(['nerd', 'geek', 'love'])
+      PixabayService.fetch(['nerd', 'geek'])
         .then(response => response.json())
-        .then(json => json.hits.map(dataSet => dataSet.webFormatUrl))
+        .then(json => json.hits.map((dataSet: any) => dataSet.webFormatUrl))
         .then(imgArray => this.setState({
           carouselData: Array.from(imgArray),
           dataReady: true,
-        });
+        }));
     }
 
     public render(): React.ReactNode {
+        const { carouselData, firstImgIndex, dataReady } = this.state;
+
         return dataReady ? (
             <Container.Flex>
                 <header className="u-align--center-xs u-align--left-s">
@@ -66,7 +68,7 @@ export default class extends React.Component<IProps, IState> {
                   data={carouselData}
                   currentStart={firstImgIndex}
                 />
-                <article aria-label="control" className={`${ctrl_buttons} u-align--center`}>
+                <article aria-label="control" className={`u-align--center`}>
                     <Button.Component
                         {...Object.assign({}, this.buttonProps, { onClick: this.handleClickPrev })}
                     >

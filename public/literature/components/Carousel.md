@@ -32,11 +32,11 @@ export class Component extends React.Component<IProps, IState> {
         const { data, currentStart } = this.props;
 
         return (
-            <article aria-label="gallery" className={`${container_outer} o-crop`}>
-                <section className={`${container_inner} o-crop__content 0-crop__content--center o-pack`}>
-                    {data.filter((d, i) => (i >= currentStart && i < imgCount + currentStart)).map((dataSet, i) => {
+            <article aria-label="gallery" className={`${styles.container_outer} o-crop`}>
+                <section className={`${styles.container_inner} o-crop__content 0-crop__content--center o-pack`}>
+                    {data.filter((d, i) => (i >= currentStart && i < this.imgCount + currentStart)).map((imgUrl, i) => {
                         <Picture.Component
-                            imgUrl={dataSet.imgUrl}
+                            imgUrl={imgUrl}
                             picNr={i}
                         />
                     })}

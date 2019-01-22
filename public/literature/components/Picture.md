@@ -34,7 +34,7 @@ export class Component extends React.Component<IProps, IState> {
                 {picNr}
               </section>
               <section className={`${styles.prev} u-hidden--from-medium o-crop__content o-crop__content--left`} onClick={handlePrev}></section>
-              <section className={`${styles.next} u-hidden--from-medium o-crop__content o-crop__content--right`} onClick={handleNext></section>
+              <section className={`${styles.next} u-hidden--from-medium o-crop__content o-crop__content--right`} onClick={handleNext}></section>
             </article>
         );
     }
