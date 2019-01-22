@@ -16,7 +16,15 @@ import { Button } from '../components';
 
 import * as Behaviours from '../lib/Behaviours';
 
-export default class extends React.Component<{}, {}> {
+export interface IProps {
+}
+
+interface IState {
+  firstImgIndex: number;
+  dataReady: boolean;
+}
+
+export default class extends React.Component<IProps, IState> {
     protected buttonProps: Button.IProps = {
         animation: Behaviours.Animation.Ripple,
         color: (Behaviours.ComponentColor.Primary as unknown as Function)('btn'),
@@ -27,34 +35,48 @@ export default class extends React.Component<{}, {}> {
         onClick: (ev: React.SyntheticEvent<HTMLButtonElement>) => void(null),
     }
 
+    constructor(props: IProps) {
+      super(props);
+
+      this.state = {
+        firstImgIndex: 0,
+        dataReady: false,
+      };
+    }
+
     public render(): React.ReactNode {
-        return (
+        return dataReady ? (
             <Container.Flex>
                 <header className="u-align--center-xs u-align--left-s">
                     <h3>Carousel Test</h3>
                 </header>
-                {this.props.children}
-                <Button.Component
-                    {...Object.assign({}, this.buttonProps, { onClick: this.handleClickPrev })}
-                >
-                    Prev
-                </Button.Component>
-                <Button.Component
-                    {...Object.assign({}, this.buttonProps, { onClick: this.handleClickNext })}
-                    onClick={this.handleClickNext}
-                >
-                    Next
-                </Button.Component>
+                <Carousel.Component
+                  data={carouselData}
+                  currentStart={firstImgIndex}
+                />
+                <article aria-label="control" className={`${ctrl_buttons} u-align--center`}>
+                    <Button.Component
+                        {...Object.assign({}, this.buttonProps, { onClick: this.handleClickPrev })}
+                    >
+                        Prev
+                    </Button.Component>
+                    <Button.Component
+                        {...Object.assign({}, this.buttonProps, { onClick: this.handleClickNext })}
+                        onClick={this.handleClickNext}
+                    >
+                        Next
+                    </Button.Component>
+                </article>
             </Container.Flex>
-        );
+        ): null;
     }
 
     protected handleClickPrev(ev: React.SyntheticEvent<HTMLButtonElement>): void {
-        console.log('clicked prev');
+        this.setState((state, props) => ({ firstImgIndex: state.firstImgIndex - 1 }));
     }
 
     protected handleClickNext(ev: React.SyntheticEvent<HTMLButtonElement>): void {
-        console.log('clicked next');
+        this.setState((state, props) => ({ firstImgIndex: state.firstImgIndex + 1 }));
     }
 }
 ```
