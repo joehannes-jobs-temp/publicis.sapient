@@ -26,6 +26,12 @@ If you want to check out the code, please go ahead and click through the followi
 1. [Bootstrap](./public/literature/bootstrap.md)
 2. [Container](./public/literature/components/Container.md)
 3. [View](./public/literature/views/CarouselDemo.md)
+4. [Common Abstractions](./public/literature/components/Behaviours.md)
+5. [Button](./public/literature/components/Button.md)
+6. [Picture](./public/literature/components/Picture.md)
+7. [Carousel](./public/literature/components/Carousel.md)
+8. lost on me … sorry … hh, I guess that's the secret chapter
+9. [PixabayService](./public/literature/services/pixabayService.md)
 
 ### Sidekicks
 * [EntryPoint Components](./public/literature/components/EntryPoint.md)
