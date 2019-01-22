@@ -10,9 +10,6 @@ johannes.neugschwentner@gmail.com
 * build (prod build)
 * test (run specs)
 
-### Sneak Preview - no need to clone & run locally
-[Peek at GH-Pages](https://joehannes-jobs.github.io/publicis.sapient)
-
 ### Further Explanation
 
 I've got _2 major cool things_ going on here.
