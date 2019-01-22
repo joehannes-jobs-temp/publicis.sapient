@@ -109,7 +109,7 @@ describe('The Button.Component Component', function() {
         );
         let spy = jest.spyOn(handler, 'click');
 
-        button.find('button').simulate('click');
+        button.find('button').simulate('rawuzi');
         expect(spy).toHaveBeenCalled();
     });
 });

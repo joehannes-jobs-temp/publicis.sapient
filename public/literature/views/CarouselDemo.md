@@ -49,7 +49,7 @@ export default class extends React.Component<IProps, IState> {
 
       PixabayService.fetch(['nerd', 'geek'])
         .then(response => response.json())
-        .then(json => json.hits.map((dataSet: any) => dataSet.webFormatUrl))
+        .then(json => json.hits.map((dataSet: any) => dataSet.webformatURL))
         .then(imgArray => this.setState({
           carouselData: Array.from(imgArray),
           dataReady: true,
@@ -87,11 +87,11 @@ export default class extends React.Component<IProps, IState> {
         );
     }
 
-    protected handleClickPrev(ev: React.SyntheticEvent<HTMLButtonElement>): void {
+    protected handleClickPrev = (ev: React.SyntheticEvent<HTMLButtonElement>): void => {
         this.setState((state, props) => ({ firstImgIndex: state.firstImgIndex - 1 }));
     }
 
-    protected handleClickNext(ev: React.SyntheticEvent<HTMLButtonElement>): void {
+    protected handleClickNext = (ev: React.SyntheticEvent<HTMLButtonElement>): void => {
         this.setState((state, props) => ({ firstImgIndex: state.firstImgIndex + 1 }));
     }
 }
