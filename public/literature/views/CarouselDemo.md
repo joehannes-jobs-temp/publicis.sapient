@@ -16,12 +16,15 @@ import { Button } from '../components';
 
 import * as Behaviours from '../lib/Behaviours';
 
+import PixabayService from '../services/PixabayService';
+
 export interface IProps {
 }
 
 interface IState {
   firstImgIndex: number;
   dataReady: boolean;
+  carouselData: string[];
 }
 
 export default class extends React.Component<IProps, IState> {
@@ -41,7 +44,16 @@ export default class extends React.Component<IProps, IState> {
       this.state = {
         firstImgIndex: 0,
         dataReady: false,
+        carouselData: [],
       };
+
+      PixabayService.fetch(['nerd', 'geek', 'love'])
+        .then(response => response.json())
+        .then(json => json.hits.map(dataSet => dataSet.webFormatUrl))
+        .then(imgArray => this.setState({
+          carouselData: Array.from(imgArray),
+          dataReady: true,
+        });
     }
 
     public render(): React.ReactNode {
@@ -68,7 +80,9 @@ export default class extends React.Component<IProps, IState> {
                     </Button.Component>
                 </article>
             </Container.Flex>
-        ): null;
+        ): (
+          <h3>Loading … hang on tight</h3>
+        );
     }
 
     protected handleClickPrev(ev: React.SyntheticEvent<HTMLButtonElement>): void {
